@@ -1,13 +1,37 @@
-<h1><%= t ".title" %></h1>
+<!--<h1><%= t ".title" %></h1>-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 <%= link_to "New product", new_product_path if authenticated? %>
-<%= link_to "Login", new_session_path unless authenticated? %>
+<header class="header">
+<nav class="navbar">
+  <div class="logo">FOOD STORE</div>
+  <ul class="nav-links">
+    <li><%= link_to "Trang Chủ", root_path %></li>
+    <li><%= link_to "Đăng Nhập", new_session_path unless authenticated? %></li>
+    <li><%= link_to"New product", new_product_path %></li>
+    <li><a href="#">Giới Thiệu</a></li>
+    <li><a href="#">Liên Hệ</a></li>
+    <i class="fas fa-shopping-cart"></i> 
 
-<%= link_to "New product", new_product_path %>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <div>
-      <%= link_to product.name, product %>
-    </div>
-  <% end %>
+  </ul>
+</nav>
+<div class="hero">
+  <h1>Chào Mừng Bạn Đến Với Trang Web Của Chúng Tôi!</h1>
+  <p>Khám phá các dịch vụ tuyệt vời và nhiều điều thú vị khác.</p>
+  <a href="#" class="cta-btn">Khám Phá Ngay</a>
 </div>
+</header>
+
+<section class="features">
+<% @products.each do |product| %>
+  <div class="feature-item">
+     <%= link_to product.name, product %>
+    <p>Mô tả dịch vụ hoặc tính năng.</p>
+  </div>
+<% end %>
+</section>
+
+<footer class="footer">
+<p>&copy; 2025 Tất cả quyền được bảo lưu</p>
+</footer>
+</body>
